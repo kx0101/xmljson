@@ -93,8 +93,8 @@
                             paragraphDistance.appendChild(node);
                             div.appendChild(paragraphDistance);
                             
-                            var stationId = station.getAttribute("stationID");
-                            node = document.createTextNode(distance[0]);
+                            var stationID = station.getAttribute("stationID");
+                            node = document.createTextNode(stationID);
                             paragraphStationID = document.createElement("p");
                             paragraphStationID.insertAdjacentText('beforeend', 'stationID: ')
                             paragraphStationID.appendChild(node);
@@ -141,6 +141,100 @@
             }  
         }  
 
+        function getJSONData() {
+            fetch('fuel.json')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    document.getElementById("data").innerHTML = "";
+                    div = document.getElementById("data");
+                    
+                    // every station
+                    for(let f = 0; f < data.station.length; f++) {
+                        // address
+                        var address = data.station[f].address;
+                        node = document.createTextNode(address);
+                        paragraphAddress = document.createElement("p");
+                        paragraphAddress.insertAdjacentText('beforeend', 'Address: ')
+                        paragraphAddress.classList.add("mt-10")
+                        paragraphAddress.appendChild(node);
+                        div.appendChild(paragraphAddress);
+
+                        // phone(s)
+                        for(let a = 0; a < data.station[f].phone.length; a++){
+                            var phone = data.station[f].phone[a];
+                            nodePhone = document.createTextNode(phone);
+                            paragraphPhone = document.createElement("p");
+                            paragraphPhone.insertAdjacentText('beforeend', 'phone: ')
+                            paragraphPhone.appendChild(nodePhone);
+                            div.appendChild(paragraphPhone);
+                        }
+
+                        // distance
+                        var distance = data.station[f].distance;
+                        node = document.createTextNode(distance);
+                        paragraphDistance = document.createElement("p");
+                        paragraphDistance.insertAdjacentText('beforeend', 'distance: ')
+                        paragraphDistance.appendChild(node);
+                        div.appendChild(paragraphDistance);
+
+                        // stationID
+                        var stationID = data.station[f].stationID;
+                        node = document.createTextNode(stationID);
+                        paragraphStasionID = document.createElement("p");
+                        paragraphStasionID.insertAdjacentText('beforeend', 'stationID: ')
+                        paragraphStasionID.appendChild(node);
+                        div.appendChild(paragraphStasionID);
+
+                        //fuels
+                        for(let s = 0; s < data.station[f].fuels.length; s++){
+                            //console.log(data.station[f].fuels[0].fuelTypeID);
+                            var fuelTypeID = data.station[f].fuels[s].fuelTypeID;
+                            node = document.createTextNode(fuelTypeID);
+                            paragraphFuelTypeID = document.createElement("p");
+                            paragraphFuelTypeID.insertAdjacentText('beforeend', 'Fuel Type: ')
+                            paragraphFuelTypeID.appendChild(node);
+                            div.appendChild(paragraphFuelTypeID);
+
+                            // price
+                            var price = data.station[f].fuels[s].price;
+                            node = document.createTextNode(price);
+                            paragraphPrice = document.createElement("p");
+                            paragraphPrice.insertAdjacentText('beforeend', 'price: ')
+                            paragraphPrice.appendChild(node);
+                            div.appendChild(paragraphPrice);
+
+                            // priceTimeStamp
+                            var priceTimeStamp = data.station[f].fuels[s].priceTimeStamp;
+                            node = document.createTextNode(priceTimeStamp);
+                            paragraphPriceTimeStamp = document.createElement("p");
+                            paragraphPriceTimeStamp.insertAdjacentText('beforeend', 'Time: ')
+                            paragraphPriceTimeStamp.appendChild(node);
+                            div.appendChild(paragraphPriceTimeStamp);
+
+                            // text
+                            var text = data.station[f].fuels[s].text;
+                            node = document.createTextNode(text);
+                            paragraphText = document.createElement("p");
+                            paragraphText.appendChild(node);
+                            div.appendChild(paragraphText);
+                        }
+
+                    }
+                    
+
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
+        }
+
+        function clear() {
+            document.getElementById("data").innerHTML = "";
+            
+        }
+
     </script>
 </head>
 
@@ -148,6 +242,7 @@
     <div id="left">
         <button onclick="getXMLData();" type="button">XML</button>
         <button onclick="getJSONData();" type="button">JSON</button>
+        <button onclick="clear();" type="button">Clear</button>
     </div>
     <div id="data"></div>
 </body>

@@ -20,7 +20,7 @@
 
     </station>
 
-    <station stationID="42342322" distance="1.5">
+    <station stationID="42342322" distance="1">
         <county countyID="12390847">Thessaloniki</county>
         <municipality municipalityID="12345">Thessaloniki</municipality>
         <dd ddID="123213">koinotita deutero test</dd>

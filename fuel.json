@@ -39,19 +39,19 @@
                "fuelTypeID": "1",
                "price": "1.342",
                "priceTimeStamp": "2022-9-14 13:15:30",
-               "#text": "Amolivdi"
+               "text": "Amolivdi"
             },
             {
                "fuelTypeID": "2",
                "price": "1.634",
                "priceTimeStamp": "2022-10-22 15:15:30",
-               "#text": "Super"
+               "text": "Super"
             }
          ]
       },
       {
          "stationID": "42342322",
-         "distance": "1.5",
+         "distance": "1",
          "county": {
             "countyID": "12390847",
             "#text": "Thessaloniki"
@@ -84,13 +84,13 @@
                "fuelTypeID": "1",
                "price": "1.942",
                "priceTimeStamp": "2022-12-12 18:24:89",
-               "#text": "Amolivdi WOW"
+               "text": "Amolivdi WOW"
             },
             {
                "fuelTypeID": "2",
                "price": "2.234",
                "priceTimeStamp": "2022-1-9 19:35:70",
-               "#text": "Super WOW"
+               "text": "Super WOW"
             }
          ]
       }
