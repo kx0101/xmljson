@@ -62,23 +62,44 @@
 
                             var address = station.getElementsByTagName("address");
 
+                            var phone = station.getElementsByTagName("phone");
+
                             var distance = station.getAttribute("distance");
                             
                             var stationId = station.getAttribute("stationID");
 
-                            var h24 = station.getElementsByTagName("h24");
-                            //var value24 = h24.getAttribute("value");
-                            
-                            console.log(h24);
-                            
                             
                             paragraph = document.createElement("p");
-                            
-                            //console.log(address[0].childNodes[0].data)
-                            
-                            node = document.createTextNode(address[0].childNodes[0].data);
-                            paragraph.appendChild(node);
-                            div.appendChild(paragraph);
+
+                            var fuels = station.getElementsByTagName("fuels")[0];
+
+                            for(j = 0; j <= fuels.length; j++){
+                                var fuel = station.getElementsByTagName("fuel")[j];
+                                console.log(fuel);
+                                var fuelTypeID = fuel.getAttribute('fuelTypeID');
+                                var price = fuel.getAttribute('price');
+                                var priceTimeStamp = fuel.getAttribute('priceTimeStamp');
+                                var valueFuel = fuel.childNodes[0];
+
+                                node = document.createTextNode(address[0].childNodes[0].data);
+                                paragraph.appendChild(node);
+
+                                node = document.createTextNode(fuelTypeID);
+                                paragraph.appendChild(node);
+
+                                node = document.createTextNode(price);
+                                paragraph.appendChild(node);
+
+                                node = document.createTextNode(priceTimeStamp);
+                                paragraph.appendChild(node);
+
+                                node = document.createTextNode(fuels.childNodes[0].data);
+                                paragraph.appendChild(node);
+
+
+
+                                div.appendChild(paragraph);
+                            }
 
                         }  
                     }   
