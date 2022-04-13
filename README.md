@@ -1,4 +1,4 @@
-# Demo is live at [link](https://github.com/kx0101/xmljson)
+# Demo is live at [link](https://kx0101.github.io/xmljson/)
 
 # XML Button
 
