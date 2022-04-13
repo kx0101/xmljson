@@ -7,14 +7,14 @@
         #left {
             width: 150px;
             float: left;
-            min-height: 1000px;
+            min-height: 800px;
             background-color: red;
         }
 
         #data {
             width: 100%;
             background-color: #aaa;
-            min-height: 1000px;
+            min-height: 800px;
         }
         
         .mt-10 {
@@ -230,9 +230,8 @@
                 })
         }
 
-        function clear() {
+        function Clear() {
             document.getElementById("data").innerHTML = "";
-            
         }
 
     </script>
@@ -242,7 +241,7 @@
     <div id="left">
         <button onclick="getXMLData();" type="button">XML</button>
         <button onclick="getJSONData();" type="button">JSON</button>
-        <button onclick="clear();" type="button">Clear</button>
+        <button onclick="Clear();" type="button">Clear</button>
     </div>
     <div id="data"></div>
 </body>
