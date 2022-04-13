@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        #left {
+            width: 150px;
+            float: left;
+            min-height: 300px;
+            background-color: red;
+        }
+
+        #data {
+            width: 100%;
+            background-color: #aaa;
+            min-height: 300px;
+        }
+    </style>
+
+    <script type="text/javascript" defer>
+
+        //συνάρτηση αρχικοποίησης AJAX υποδομής - επιστρέφει reference στο AJAX
+        //object ή false αν δεν υποστηρίζονται AJAX κλήσεις από τον browser.
+        function initAJAX() {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                return new XMLHttpRequest();
+            }
+            else if (window.ActiveXObject) {
+                // code for IE6, IE5 - εδώ χρησιμοποιούνται ActiveX object (MS τεχνολογίες)
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                alert("Your browser does not support XMLHTTP!");
+                return false;
+            }
+        }
+
+
+        function getXMLData() {
+
+            //εκκίνηση AJAX υποδομής
+            var xmlhttp = initAJAX();
+
+            //Εφόσον υποστηρίζονται AJAX κλίεις:
+            if (xmlhttp) {
+                // κλήση σε API για λήψη δεδομένων (ΕΔΩ κλήση σε στατικό JSON αρχείο)
+                xmlhttp.open("GET", "fuel.xml", true);
+                xmlhttp.send(null);
+
+                //ορισμός callback για τον χειρισμό της απάντησης
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                        var xml = xmlhttp.responseXML;
+
+                        var stations = xml.getElementsByTagName("station");
+                        document.getElementById("data").innerHTML = "";
+                        for (i = 0; i < stations.length; i++) {
+                            div = document.getElementById("data");
+                            var station = stations[i];
+
+                            var address = station.getElementsByTagName("address");
+
+                            var distance = station.getAttribute("distance");
+                            
+                            var stationId = station.getAttribute("stationID");
+
+                            var h24 = station.getElementsByTagName("h24");
+                            //var value24 = h24.getAttribute("value");
+                            
+                            console.log(h24);
+                            
+                            
+                            paragraph = document.createElement("p");
+                            
+                            //console.log(address[0].childNodes[0].data)
+                            
+                            node = document.createTextNode(address[0].childNodes[0].data);
+                            paragraph.appendChild(node);
+                            div.appendChild(paragraph);
+
+                        }  
+                    }   
+                } 
+            }  
+        }  
+
+    </script>
+</head>
+
+<body>
+    <div id="left">
+        <button onclick="getXMLData();" type="button">XML</button>
+    </div>
+    <div id="data"></div>
+</body>
+
+</html>

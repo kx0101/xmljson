@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset lat="24.12321" long="41.23124" createdAt="2222" msg="Message here">
+
+    <station stationID="1927321" distance="2">
+        <county countyID="12390847">Giannitsa</county>
+        <municipality municipalityID="12345">Larisa</municipality>
+        <dd ddID="123213">koinotita test</dd>
+        <address><![CDATA[Evaggelou 23]]></address>
+        <companyName><![CDATA[companyTest]]></companyName>
+        <lat>23.111456</lat>    
+        <long>41.1114567</long>
+        <h24 value="0"/>
+        <brand brandID="1">EKO</brand>
+        <phone>2382023834</phone>
+        <phone>6942132456</phone>
+        <fuels>
+            <fuel fuelTypeID="1" price="1.342" priceTimeStamp="2022-9-14 13:15:30">Amolivdi</fuel>
+            <fuel fuelTypeID="2" price="1.634" priceTimeStamp="2022-10-22 15:15:30">Super</fuel>
+        </fuels>
+
+    </station>
+
+</dataset>
