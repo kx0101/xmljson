@@ -7,14 +7,18 @@
         #left {
             width: 150px;
             float: left;
-            min-height: 300px;
+            min-height: 1000px;
             background-color: red;
         }
 
         #data {
             width: 100%;
             background-color: #aaa;
-            min-height: 300px;
+            min-height: 1000px;
+        }
+        
+        .mt-10 {
+            padding-top: 20px;
         }
 
         p {
@@ -66,12 +70,35 @@
                             var station = stations[i];
 
                             var address = station.getElementsByTagName("address");
+                            node = document.createTextNode(address[0].childNodes[0].data);
+                            paragraph1 = document.createElement("p");
+                            paragraph1.insertAdjacentText('beforeend', 'Address: ')
+                            paragraph1.classList.add("mt-10")
+                            paragraph1.appendChild(node);
+                            div.appendChild(paragraph1);
 
                             var phone = station.getElementsByTagName("phone");
-
+                            for(k = 0; k < phone.length; k++){
+                                node = document.createTextNode(phone[k].textContent);
+                                paragraphPhone = document.createElement("p");
+                                paragraphPhone.insertAdjacentText('beforeend', 'phone: ')
+                                paragraphPhone.appendChild(node);
+                                div.appendChild(paragraphPhone);
+                            }
+                        
                             var distance = station.getAttribute("distance");
+                            node = document.createTextNode(distance[0]);
+                            paragraphDistance = document.createElement("p");
+                            paragraphDistance.insertAdjacentText('beforeend', 'distance: ')
+                            paragraphDistance.appendChild(node);
+                            div.appendChild(paragraphDistance);
                             
                             var stationId = station.getAttribute("stationID");
+                            node = document.createTextNode(distance[0]);
+                            paragraphStationID = document.createElement("p");
+                            paragraphStationID.insertAdjacentText('beforeend', 'stationID: ')
+                            paragraphStationID.appendChild(node);
+                            div.appendChild(paragraphStationID);
 
                             //var fuels = station.getElementsByTagName("fuels")[0];
                             var fuels = station.getElementsByTagName("fuels");
@@ -82,12 +109,6 @@
                                 var price = fuel.getAttribute('price');
                                 var priceTimeStamp = fuel.getAttribute('priceTimeStamp');
                                 var valueFuel = fuel.childNodes[0];
-
-                                node = document.createTextNode(address[0].childNodes[0].data);
-                                paragraph1 = document.createElement("p");
-                                paragraph1.insertAdjacentText('beforeend', 'Address: ')
-                                paragraph1.appendChild(node);
-                                div.appendChild(paragraph1);
 
                                 node = document.createTextNode(fuelTypeID);
                                 paragraph2 = document.createElement("p");
@@ -126,6 +147,7 @@
 <body>
     <div id="left">
         <button onclick="getXMLData();" type="button">XML</button>
+        <button onclick="getJSONData();" type="button">JSON</button>
     </div>
     <div id="data"></div>
 </body>

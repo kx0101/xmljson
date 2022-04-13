@@ -1,0 +1,98 @@
+{
+   "lat": "24.12321",
+   "long": "41.23124",
+   "createdAt": "2222",
+   "msg": "Message here",
+   "station": [
+      {
+         "stationID": "1927321",
+         "distance": "2",
+         "county": {
+            "countyID": "12390847",
+            "#text": "Pella"
+         },
+         "municipality": {
+            "municipalityID": "12345",
+            "#text": "Giannitsa"
+         },
+         "dd": {
+            "ddID": "123213",
+            "#text": "koinotita test"
+         },
+         "address": "Evaggelou 23",
+         "companyName": "companyTest",
+         "lat": "23.111456",
+         "long": "41.1114567",
+         "h24": {
+            "value": "0"
+         },
+         "brand": {
+            "brandID": "1",
+            "#text": "EKO"
+         },
+         "phone": [
+            "2382023834",
+            "6942132456"
+         ],
+         "fuels": [
+            {
+               "fuelTypeID": "1",
+               "price": "1.342",
+               "priceTimeStamp": "2022-9-14 13:15:30",
+               "#text": "Amolivdi"
+            },
+            {
+               "fuelTypeID": "2",
+               "price": "1.634",
+               "priceTimeStamp": "2022-10-22 15:15:30",
+               "#text": "Super"
+            }
+         ]
+      },
+      {
+         "stationID": "42342322",
+         "distance": "1.5",
+         "county": {
+            "countyID": "12390847",
+            "#text": "Thessaloniki"
+         },
+         "municipality": {
+            "municipalityID": "12345",
+            "#text": "Thessaloniki"
+         },
+         "dd": {
+            "ddID": "123213",
+            "#text": "koinotita deutero test"
+         },
+         "address": "Aleksandrou 19",
+         "companyName": "companyVolume2",
+         "lat": "23.111456",
+         "long": "41.1114567",
+         "h24": {
+            "value": "0"
+         },
+         "brand": {
+            "brandID": "1",
+            "#text": "EKO"
+         },
+         "phone": [
+            "2382023834",
+            "6942132456"
+         ],
+         "fuels": [
+            {
+               "fuelTypeID": "1",
+               "price": "1.942",
+               "priceTimeStamp": "2022-12-12 18:24:89",
+               "#text": "Amolivdi WOW"
+            },
+            {
+               "fuelTypeID": "2",
+               "price": "2.234",
+               "priceTimeStamp": "2022-1-9 19:35:70",
+               "#text": "Super WOW"
+            }
+         ]
+      }
+   ]
+}
