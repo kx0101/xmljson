@@ -16,6 +16,11 @@
             background-color: #aaa;
             min-height: 300px;
         }
+
+        p {
+            margin: 10px;
+        }
+
     </style>
 
     <script type="text/javascript" defer>
@@ -68,37 +73,45 @@
                             
                             var stationId = station.getAttribute("stationID");
 
-                            
-                            paragraph = document.createElement("p");
-
-                            var fuels = station.getElementsByTagName("fuels")[0];
+                            //var fuels = station.getElementsByTagName("fuels")[0];
+                            var fuels = station.getElementsByTagName("fuels");
 
                             for(j = 0; j <= fuels.length; j++){
                                 var fuel = station.getElementsByTagName("fuel")[j];
-                                console.log(fuel);
                                 var fuelTypeID = fuel.getAttribute('fuelTypeID');
                                 var price = fuel.getAttribute('price');
                                 var priceTimeStamp = fuel.getAttribute('priceTimeStamp');
                                 var valueFuel = fuel.childNodes[0];
 
                                 node = document.createTextNode(address[0].childNodes[0].data);
-                                paragraph.appendChild(node);
+                                paragraph1 = document.createElement("p");
+                                paragraph1.insertAdjacentText('beforeend', 'Address: ')
+                                paragraph1.appendChild(node);
+                                div.appendChild(paragraph1);
 
                                 node = document.createTextNode(fuelTypeID);
-                                paragraph.appendChild(node);
+                                paragraph2 = document.createElement("p");
+                                paragraph2.insertAdjacentText('beforeend', 'Fuel Type: ')
+                                paragraph2.appendChild(node);
+                                div.appendChild(paragraph2);
 
                                 node = document.createTextNode(price);
-                                paragraph.appendChild(node);
+                                paragraph3 = document.createElement("p");
+                                paragraph3.insertAdjacentText('beforeend', 'price: ')
+                                paragraph3.appendChild(node);
+                                div.appendChild(paragraph3);
 
                                 node = document.createTextNode(priceTimeStamp);
-                                paragraph.appendChild(node);
+                                paragraph4 = document.createElement("p");
+                                paragraph4.insertAdjacentText('beforeend', 'Time: ')
+                                paragraph4.appendChild(node);
+                                div.appendChild(paragraph4);
 
-                                node = document.createTextNode(fuels.childNodes[0].data);
-                                paragraph.appendChild(node);
+                                node = document.createTextNode(valueFuel.nodeValue);
+                                paragraph5 = document.createElement("p");
+                                paragraph5.appendChild(node);
+                                div.appendChild(paragraph5);
 
-
-
-                                div.appendChild(paragraph);
                             }
 
                         }  
